@@ -96,7 +96,7 @@
     </div>
   </div>
         <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2022 Celebrations</div></div>
+            <div class="container"><div class="small text-center text-muted">Copyright © 2023 Celebrations</div></div>
         </footer>
         
        <?php include('footer.php') ?>
