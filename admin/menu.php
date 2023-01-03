@@ -94,7 +94,7 @@
 									<td class="">
 										<p>Name : <b><?php echo $row['name'] ?></b></p>
 										<p>Description : <b class="truncate"><?php echo $row['description'] ?></b></p>
-										<p>Price : <b><?php echo "$".number_format($row['price'],2) ?></b></p>
+										<p>Price : <b><?php echo number_format($row['price'],2) ?></b></p>
 									</td>
 									<td class="text-center">
 										<button class="btn btn-sm btn-primary edit_menu" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-status="<?php echo $row['status'] ?>" data-description="<?php echo $row['description'] ?>" data-price="<?php echo $row['price'] ?>" data-img_path="<?php echo $row['img_path'] ?>">Edit</button>
