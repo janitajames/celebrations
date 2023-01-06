@@ -31,7 +31,7 @@
 			$(this).find('.alert-danger').remove();
             debugger
 		$.ajax({
-			url:'admin/ajax.php?action=save_user',
+			url:'ajax.php?action=save_user',
 			method:'POST',
 			data:$(this).serialize(),
 			error:err=>{
@@ -39,12 +39,12 @@
 		$('#signup-frm button[type="submit"]').removeAttr('disabled').html('Create');
 
 			},
-			success:function(resp){
-                debugger
+			success:function(resp){				
 				if(resp == 1){
-					location.href ='<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php?page=home' ?>';
+					alert_toast("User added successfully Placed.")
+					location.href ='<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php?page=users' ?>';
 				}else{
-					$('#signup-frm').prepend('<div class="alert alert-danger">Email already exist.</div>')
+					$('#signup-frm').prepend('<div class="alert alert-danger">Username already exist.</div>')
 					$('#signup-frm button[type="submit"]').removeAttr('disabled').html('Create');
 				}
 			}
