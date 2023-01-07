@@ -1,26 +1,41 @@
+<?php include('db_connect.php');
+if (isset($_GET['id'])) {
+	$userId = $_GET['id'];
+	$result = $conn->query("SELECT * FROM users where id =  '" . $userId . "'");
+	$row = mysqli_fetch_row($result);
+	$name = $row['1'];
+	$userName = $row['2'];
+	$type = $row['4'];
+	$password = $row['3'];
+	$id = $row['0'];
+
+}
+?>
 <div class="container-fluid">
-	<form action="" id="signup-frm">
+	<form action="" id="signup-frm"> 
+	<input type="hidden" name="id" required="" value=<?php echo $id;?> class="form-control">
+
 		<div class="form-group">
 			<label for="" class="control-label">Name</label>
-			<input type="text" name="name" required="" class="form-control">
+			<input type="text" name="name" required="" value=<?php echo $name;?> class="form-control">
 		</div>
 		<div class="form-group">
 			<label class="control-label">Category </label>
-			<select name="type" id="" class="custom-select browser-default">
-				<option value=1>Admin</option>
-				<option value=2>Staff</option>
+			<select name="type"  id="" class="custom-select browser-default">
+				<option value=1 <?php if($type==='1') echo 'selected="selected"';?>>Admin</option>
+				<option value=2 <?php if($type==='2') echo 'selected="selected"';?>>Staff</option>
 			</select>
 
 		</div>
 		<div class="form-group">
 			<label for="" class="control-label">Username</label>
-			<input type="text" name="username" required="" class="form-control">
+			<input type="text" name="username"  value=<?php echo $userName;?> required="" class="form-control">
 		</div>
 		<div class="form-group">
 			<label for="" class="control-label">Password</label>
-			<input type="password" name="password" required="" class="form-control">
+			<input type="password" name="password" value=<?php echo $password;?> required="" class="form-control">
 		</div>
-		<button class="button btn btn-info btn-sm">Create</button>
+		<button class="button btn btn-info btn-sm">Save</button>
 	</form>
 </div>
 

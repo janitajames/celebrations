@@ -63,7 +63,7 @@ Class Action {
 		$data = " name = '$name' ";
 		$data .= ", username = '$username' ";
 		$data .= ", password = '$password' ";
-		$data .= ", type = 1";
+		$data .= ", type = '$type' ";
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO users set ".$data);
 		}else{
@@ -139,6 +139,13 @@ Class Action {
 	function delete_category(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM category_list where id = ".$id);
+		if($delete)
+			return 1;
+	}
+
+	function delete_user(){
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM users  where id = ".$id);
 		if($delete)
 			return 1;
 	}
