@@ -27,7 +27,7 @@
                 <div class="card menu-item">
                     <!-- <img src="assets/img/<php echo $row['img_path'] ?>" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $row['name']  ?> </h5>
+                        <h5 class="card-title" id="cat_name"><?php echo $row['name']  ?> </h5>
                         <!-- <p class="card-text truncate"><php echo $row['description'] ?></p> -->
                         <div class="text-center">
                             <button class="btn viewProducts btn-block btn-outline-primary" type="button" data-id='<?php echo $row['id'] ?>'>View</button>
@@ -40,8 +40,9 @@
 </section>
 <script>
     $('.viewProducts').click(function(e) {
+    
         e.preventDefault();
-        location.replace("index.php?page=home&categoryId=" + $(this).attr('data-id'))
+        location.replace("index.php?page=home&categoryId=" + $(this).attr('data-id') +"&name="+document.getElementById('cat_name').innerText )
     })
 </script>
 <style>
