@@ -13,19 +13,19 @@
      </div>
  </header>
  <section class="page-section" id="menu">
-     <div id="menu-field" class="card-deck">
-         <?php
-            include 'admin/db_connect.php';
-            $catgeoryId = $_GET['categoryId'];
-            if(isset($catgeoryId )){
-            $qry = $conn->query("SELECT * FROM  product_list where category_id =  '" . $catgeoryId . "'order by rand() ");
-            }
-            else{
-                $qry = $conn->query("SELECT * FROM  product_list order by rand()");
-            }
-            while ($row = $qry->fetch_assoc()) :
-            ?>
-             <div class="col-lg-3">
+     <div id="menu-field">
+         <ul class="list-group list-group-flush container">
+             <?php
+                include 'admin/db_connect.php';
+                $catgeoryId = $_GET['categoryId'];
+                if (isset($catgeoryId)) {
+                    $qry = $conn->query("SELECT * FROM  product_list where category_id =  '" . $catgeoryId . "'order by id ");
+                } else {
+                    $qry = $conn->query("SELECT * FROM  product_list order by rand()");
+                }
+                while ($row = $qry->fetch_assoc()) :
+                ?>
+                 <!-- <div class="col-lg-3">
                  <div class="card menu-item ">
                      <img src="assets/img/<?php echo $row['img_path'] ?>" class="card-img-top" style="height: 200px;" alt="...">
                      <div class="card-body">
@@ -38,8 +38,31 @@
                      </div>
 
                  </div>
-             </div>
-         <?php endwhile; ?>
+             </div> -->
+                 <li class="list-group-item row p-100">
+                     <div class="container">
+                         <div class="row justify-content-between">
+                             <div class="col">
+                                 <div class="row">
+                                     <div class="col-12">
+                                         <h5 class="card-title text-start"><?php echo $row['name'] ?></h5>
+                                         <h5 class="card-title text-start">₹<?php echo $row['price'] ?></h5>
+                                         <p class="card-text text-start truncate-desc" style="height:40px"><?php echo $row['description'] ?></p>
+                                     </div>
+                                     <div class="col-12 mt-2">
+                                     <button type="button" class="btn btn-primary view_prod" data-id=<?php echo $row['id'] ?>>+ add</button>
+                                     </div>
+                                 </div>
+
+                             </div>
+                             <div class="col" style="text-align:end">
+                                 <img src="assets/img/<?php echo $row['img_path'] ?>" class="rounded float-end item-img" alt="...">
+                             </div>
+                         </div>
+                     </div>
+                 </li>
+             <?php endwhile; ?>
+         </ul>
      </div>
  </section>
  <script>
@@ -48,6 +71,10 @@
      })
  </script>
  <style>
+     .item-img {
+         width: 150px;
+     }
+
      .truncate-desc {
          overflow: hidden;
          text-overflow: ellipsis;
