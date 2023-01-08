@@ -63,9 +63,6 @@
                                      <h5 class="card-title text-start">₹<?php echo $row['price'] ?></h5>
                                      <p class="card-text text-start truncate-desc" style="height:40px"><?php echo $row['description'] ?></p>
                                  </div>
-                                 <!-- <div class="col-12 mt-2">
-                                     <button type="button" class="btn btn-primary view_prod" data-id=<?php echo $row['id'] ?>>+ add</button>
-                                 </div> -->
                              </div>
 
                          </div>

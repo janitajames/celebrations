@@ -128,6 +128,13 @@ Class Action {
 	function save_category(){
 		extract($_POST);
 		$data = " name = '$name' ";
+		$data .= ", description = '$description' ";
+		if($_FILES['img']['tmp_name'] != ''){
+			$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
+			$move = move_uploaded_file($_FILES['img']['tmp_name'],'../assets/img/'. $fname);
+		$data .= ", img_path = '$fname' ";
+
+}
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO category_list set ".$data);
 		}else{
