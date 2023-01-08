@@ -75,7 +75,7 @@
 											<?php echo $row['description'] ?>
 										</td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>">Edit</button>
+											<button class="btn btn-sm btn-primary edit_cat" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>"  data-description="<?php echo $row['description'] ?>" data-img_path="<?php echo $row['img_path'] ?>">Edit</button>
 											<button class="btn btn-sm btn-danger delete_cat" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 										</td>
 									</tr>

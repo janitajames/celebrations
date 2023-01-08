@@ -12,37 +12,25 @@
         </div>
     </div>
 </header>
-<section class="page-section container" id="menu">
+<section class="mt-5 container" id="menu">
     <div class="category-title">
         <h2>Categories</h2>
     </div>
     <div id="menu-field" class=" mt-5">
-        <div class="row ">
+        <div class="row row-cols-4">
 
             <?php
             include 'admin/db_connect.php';
             $qry = $conn->query("SELECT * FROM  category_list order by id asc");
             while ($row = $qry->fetch_assoc()) :
             ?>
-                <div class="card col viewProducts" style="width: 20rem;">
+                <div class="card col ml-3 mb-3 product-card viewProducts pe-auto" style="width: 20rem;" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" >
                     <img src="assets/img/<?php echo $row['img_path'] ?>" class="item-img " alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="cat_name"><?php echo $row['name'] ?></h5>
                         <p class="card-text truncate" style="height:40px"><?php echo $row['description'] ?></p> 
-                        <!-- <a href="index.php?page=home&categoryId=12&name=<?php echo $row['name'] ?>"class="btn btn-primary stretched-link">Browse</a> -->
-                        <button type="button" class="btn btn-primary viewProducts" data-id='<?php echo $row['id'] ?>' >Browse</button>
                     </div>
                 </div>
-                <!-- <div class="col-lg-10 card-padding">
-                <div class="card menu-item">
-                    <div class="card-body">
-                        <h5 class="card-title" id="cat_name"><?php echo $row['name']  ?> </h5>
-                        <div class="text-center">
-                            <button class="btn viewProducts btn-block btn-outline-primary" type="button" data-id='<?php echo $row['id'] ?>'>View</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <?php endwhile; ?>
         </div>
 </section>
@@ -50,14 +38,18 @@
     $('.viewProducts').click(function(e) {
         debugger
         e.preventDefault();
-        location.replace("index.php?page=home&categoryId=" + $(this).attr('data-id') + "&name=" + document.getElementById('cat_name').innerText)
+        location.replace("index.php?page=home&categoryId=" + ($(this).attr('data-id')) + "&name=" +($(this).attr('data-name')) )
     })
 </script>
 <style>
     .item-img {
         width: 100%;
+        height:150px;
         padding: 0;
         margin: 0;
+    }
+    .product-card{
+        cursor: pointer;
     }
 
     b.truncate {

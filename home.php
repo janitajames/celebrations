@@ -56,8 +56,8 @@
                              <div class="row">
                                  <div class="col-12">
                                      <div class="row">
-                                         <h5 class="card-title text-start col-4" style="align-items:baseline;"><?php echo $row['name'] ?></h5>
-                                         <button type="button" class="btn add-btn btn-primary view_prod col-5" data-id=<?php echo $row['id'] ?>>+ add</button>
+                                         <h5 class="card-title text-start col-5" style="align-items:baseline;"><?php echo $row['name'] ?></h5>
+                                         <button type="button" class="btn add-btn btn-primary view_prod col-4" data-id=<?php echo $row['id'] ?>>+ add</button>
 
                                      </div>
                                      <h5 class="card-title text-start">₹<?php echo $row['price'] ?></h5>
