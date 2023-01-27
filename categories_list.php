@@ -6,19 +6,17 @@
                 <h3 class="text-white">Welcome to <?php echo $_SESSION['setting_name']; ?></h3>
                 <hr class="divider my-4" />
                 <a class="btn btn-primary btn-xl js-scroll-trigger" href="#menu">Order Now</a>
-
             </div>
-
         </div>
     </div>
 </header>
+
 <section class="mt-5 container" id="menu">
     <div class="category-title">
         <h2>Categories</h2>
     </div>
     <div id="menu-field" class=" mt-5">
         <div class="row row-cols-4">
-
             <?php
             include 'admin/db_connect.php';
             $qry = $conn->query("SELECT * FROM  category_list order by id asc");
